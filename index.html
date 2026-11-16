@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Check | Gorras Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #111;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #00ff9d;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00ff9d;
+        }
+
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                        url('https://images.unsplash.com/photo-1588850561407-ed78c301e206?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #ccc;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #00ff9d;
+            color: #000;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #00cc7a;
+            transform: translateY(-3px);
+        }
+
+        .productos {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .productos h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #00ff9d;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #222;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .precio {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #00ff9d;
+            margin-bottom: 15px;
+        }
+
+        .btn-card {
+            display: block;
+            text-align: center;
+            background-color: transparent;
+            border: 2px solid #00ff9d;
+            color: #00ff9d;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-card:hover {
+            background-color: #00ff9d;
+            color: #000;
+        }
+
+        .about {
+            background-color: #111;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: #00ff9d;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        .contacto {
+            padding: 80px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contacto h2 {
+            font-size: 2.5rem;
+            color: #00ff9d;
+            margin-bottom: 30px;
+        }
+
+        .contacto input,
+        .contacto textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #1a1a1a;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .contacto button {
+            background-color: #00ff9d;
+            color: #000;
+            border: none;
+            padding: 14px 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contacto button:hover {
+            background-color: #00cc7a;
+        }
+
+        footer {
+            background-color: #0a0a0a;
+            text-align: center;
+            padding: 25px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                margin-left: 15px;
+                font-size: 0.9rem;
+            }
+
+            header {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Just Check</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <h1>Just Check</h1>
+        <p>Gorras con estilo, calidad y actitud. Encuentra el modelo perfecto que va con tu personalidad.</p>
+        <a href="#productos" class="btn">Ver Colección</a>
+    </section>
+
+    <section class="productos" id="productos">
+        <h2>Nuestra Colección</h2>
+        <div class="grid">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1588850561407-ed78c301e206?w=500&h=500&fit=crop" alt="Gorra Negra Classic">
+                <div class="card-content">
+                    <h3>Classic Black</h3>
+                    <p>Gorra clásica de algodón premium. Ideal para el día a día.</p>
+                    <div class="precio">$45.000</div>
+                    <a href="#contacto" class="btn-card">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=500&h=500&fit=crop" alt="Gorra Urban">
+                <div class="card-content">
+                    <h3>Urban Green</h3>
+                    <p>Estilo urbano con bordado frontal. Perfecta para la calle.</p>
+                    <div class="precio">$52.000</div>
+                    <a href="#contacto" class="btn-card">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=500&h=500&fit=crop" alt="Gorra Snapback">
+                <div class="card-content">
+                    <h3>Snapback Pro</h3>
+                    <p>Snapback ajustable con visera plana. Máximo estilo.</p>
+                    <div class="precio">$58.000</div>
+                    <a href="#contacto" class="btn-card">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1514327605112-b649f0e2c807?w=500&h=500&fit=crop" alt="Gorra Trucker">
+                <div class="card-content">
+                    <h3>Trucker Mesh</h3>
+                    <p>Gorra trucker con malla trasera. Fresca y cómoda.</p>
+                    <div class="precio">$48.000</div>
+                    <a href="#contacto" class="btn-card">Comprar</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about" id="nosotros">
+        <h2>Sobre Just Check</h2>
+        <p>
+            En Just Check creemos que una gorra no es solo un accesorio, es una forma de expresar quién eres. 
+            Trabajamos con materiales de alta calidad y diseños exclusivos para que lleves estilo en cada momento. 
+            Envíos a todo el país y atención personalizada.
+        </p>
+    </section>
+
+    <section class="contacto" id="contacto">
+        <h2>Contáctanos</h2>
+        <form>
+            <input type="text" placeholder="Tu nombre" required>
+            <input type="email" placeholder="Tu correo" required>
+            <textarea rows="5" placeholder="¿Qué gorra te interesa o tienes alguna pregunta?" required></textarea>
+            <button type="submit">Enviar mensaje</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 Just Check - Todos los derechos reservados</p>
+    </footer>
+
+</body>
+</html>
